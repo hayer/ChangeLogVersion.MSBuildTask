@@ -7,8 +7,11 @@
 		<Author>Peder 'hayer' Husom</Author>
 		<Description>Grab version number from CHANGELOG.md or other file following the CHANGELOG-format v1.1.0 from keepachangelog.com.</Description>
 		<PackageTags>build;msbuild;versioning;changelog</PackageTags>
-		<!--TODO: fill in-->
-		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <PackageProjectUrl>https://github.com/hayer/ChangeLogVersion.MSBuildTask</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/hayer/ChangeLogVersion.MSBuildTask</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
 	</PropertyGroup>
 
   <PropertyGroup>

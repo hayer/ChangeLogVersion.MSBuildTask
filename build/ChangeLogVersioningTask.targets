@@ -11,6 +11,8 @@
 	<PropertyGroup>
 	  <PackageVersion Condition="$(VersionSuffix) != ''">$(VersionPrefix)-$(VersionSuffix)</PackageVersion>
 	  <PackageVersion Condition="$(VersionSuffix) == ''">$(VersionPrefix)</PackageVersion>
+	  <Version Condition="$(VersionSuffix) != ''">$(VersionPrefix)-$(VersionSuffix)</Version>
+	  <Version Condition="$(VersionSuffix) == ''">$(VersionPrefix)</Version>
 	</PropertyGroup>
   </Target>
 </Project>

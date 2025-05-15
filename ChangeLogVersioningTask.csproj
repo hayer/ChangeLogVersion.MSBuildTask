@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<IsPackable>true</IsPackable>
-		<Version>1.0.0</Version>
+		<Version>1.1.0</Version>
 		<Title>ChangeLogVersioning.MSBuild</Title>
 		<Author>Peder 'hayer' Husom</Author>
 		<Description>Grab version number from CHANGELOG.md or other file following the CHANGELOG-format v1.1.0 from keepachangelog.com.</Description>

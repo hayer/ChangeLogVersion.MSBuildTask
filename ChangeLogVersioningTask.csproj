@@ -12,6 +12,8 @@
     <RepositoryUrl>https://github.com/hayer/ChangeLogVersion.MSBuildTask</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
 	</PropertyGroup>
 
   <PropertyGroup>
@@ -23,8 +25,13 @@
   </ItemGroup>
 
   <ItemGroup>
-	<Content Include="build\ChangeLogVersioningTask.props" PackagePath="build\" />
-	<Content Include="build\ChangeLogVersioningTask.targets" PackagePath="build\" />
+    <None Include="LICENSE.md" Pack="true" PackagePath="\" />
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="build\ChangeLogVersioningTask.props" PackagePath="build\" />
+  	<Content Include="build\ChangeLogVersioningTask.targets" PackagePath="build\" />
   </ItemGroup>
 
 </Project>

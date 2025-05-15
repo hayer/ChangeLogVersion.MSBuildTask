@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<_AppSettingsStronglyTyped_TaskFolder>$(MSBuildThisFileDirectory)..\lib\netstandard2.0</_AppSettingsStronglyTyped_TaskFolder>
+	<CustomTasksAssembly>$(_AppSettingsStronglyTyped_TaskFolder)\$(MSBuildThisFileName).dll</CustomTasksAssembly>
+  </PropertyGroup>
+
+  <!--Register our custom task-->
+  <UsingTask TaskName="ChangeLogVersioningTask" AssemblyFile="$(CustomTasksAssembly)"/>
+
+  <PropertyGroup>
+	  <CrashOnFailure>true</CrashOnFailure>
+	  <ChangeLogDirectory>$(MSBuildProjectDirectory)</ChangeLogDirectory>
+	  <ChangeLogFileName>CHANGELOG.md</ChangeLogFileName>
+  </PropertyGroup>
+</Project>

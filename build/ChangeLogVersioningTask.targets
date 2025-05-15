@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="SetPackageVerionFromChangeLog" BeforeTargets="GetAssemblyVersion">
+	  <ChangeLogVersioningTask
+		  CrashOnFailure="$(CrashOnFailure)"
+		  ChangeLogDirectory="$(ChangeLogDirectory)"
+		  ChangeLogFileName="$(ChangeLogFileName)">
+		<Output TaskParameter="VersionPrefix" PropertyName="VersionPrefix" />
+	</ChangeLogVersioningTask>
+
+	<PropertyGroup>
+	  <PackageVersion Condition="$(VersionSuffix) != ''">$(VersionPrefix)-$(VersionSuffix)</PackageVersion>
+	  <PackageVersion Condition="$(VersionSuffix) == ''">$(VersionPrefix)</PackageVersion>
+	</PropertyGroup>
+  </Target>
+</Project>

@@ -1,0 +1,24 @@
+name: Pack and ship
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  deploy:
+    run-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+        env:
+          NUGET_AUTH_TOKEN: $${{secrets.NUGET_PACKAGE_API_KEY}}
+      - run: dotnet build --configuration Release ChangeLogVersioningTask.csproj
+      - name: Create package
+        run: dotnet pack --configuration Release --output nuget ChangeLogVersioningTask.csproj
+      - name: Publish package
+        run: dotnet nuget push nuget/*.nupkg

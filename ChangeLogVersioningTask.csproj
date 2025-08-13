@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<IsPackable>true</IsPackable>
-		<Version>1.1.0</Version>
-		<Title>ChangeLogVersioning.MSBuild</Title>
-		<Author>Peder 'hayer' Husom</Author>
-		<Description>Grab version number from CHANGELOG.md or other file following the CHANGELOG-format v1.1.0 from keepachangelog.com.</Description>
-		<PackageTags>build;msbuild;versioning;changelog</PackageTags>
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <Version>1.2.0</Version>
+    <Title>ChangeLogVersioning.MSBuild</Title>
+    <Authors>Peder 'hayer' Husom</Authors>
+    <Description>Grab version number from CHANGELOG.md or other file following the CHANGELOG-format v1.1.0 from keepachangelog.com.</Description>
+    <PackageTags>build;msbuild;versioning;changelog</PackageTags>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <PackageProjectUrl>https://github.com/hayer/ChangeLogVersion.MSBuildTask</PackageProjectUrl>
     <RepositoryUrl>https://github.com/hayer/ChangeLogVersion.MSBuildTask</RepositoryUrl>
@@ -14,7 +14,14 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
-	</PropertyGroup>
+  </PropertyGroup>
+
+  <!-- Set DevelopmentDependency so package output is not included in consumers' output-->
+  <Target Name="EnforceDevelopmentDependency" BeforeTargets="GenerateNuspec">
+    <PropertyGroup>
+      <DevelopmentDependency>true</DevelopmentDependency>
+    </PropertyGroup>
+  </Target>
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
@@ -31,7 +38,7 @@
 
   <ItemGroup>
     <Content Include="build\ChangeLogVersioningTask.props" PackagePath="build\" />
-  	<Content Include="build\ChangeLogVersioningTask.targets" PackagePath="build\" />
+    <Content Include="build\ChangeLogVersioningTask.targets" PackagePath="build\" />
   </ItemGroup>
 
 </Project>

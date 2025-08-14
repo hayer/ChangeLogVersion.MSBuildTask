@@ -1,8 +1,13 @@
 name: Pack and ship
 
 on:
+  workflow_dispatch: # Allow manually running workflow
   release:
     types: [created]
+
+env:
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+  DOTNET_NOLOGO: 1
 
 jobs:
   deploy:
@@ -21,4 +26,4 @@ jobs:
       - name: Create package
         run: dotnet pack --configuration Release --output nuget ChangeLogVersioningTask.csproj
       - name: Publish package
-        run: dotnet nuget push nuget/*.nupkg
+        run: dotnet nuget push nuget/*.nupkg --api-key "${{ secrets.NUGET_PACKAGE_API_KEY }}" --source https://api.nuget.org/v3/index.json

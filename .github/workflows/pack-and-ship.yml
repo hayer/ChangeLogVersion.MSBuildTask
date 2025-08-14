@@ -26,6 +26,6 @@ jobs:
       - name: Create package
         run: dotnet pack --configuration Release --output nuget ChangeLogVersioningTask.csproj
       - name: Publish package
-        run: dotnet nuget push nuget/*.nupkg --source https://api.nuget.org/v3/index.json
+        run: dotnet nuget push nuget/*.nupkg --source https://api.nuget.org/v3/index.json --api-key $NUGET_API_KEY
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_PACKAGE_API_KEY }}
